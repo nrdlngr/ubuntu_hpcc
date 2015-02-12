@@ -198,8 +198,8 @@ done
 
 if [ \"X\$N\" = \"X\" ] || [ \"X\$NB\" = \"X\" ]
 then
-	# SYS_MEMORY * about .62% of that, go from MB to bytes and divide by 8
-	N=\$(echo \"scale=0;sqrt(\${SYS_MEMORY}*0.62*1048576/8)\" |bc -l)
+	# SYS_MEMORY * about .62% of that, go from kB to bytes and divide by 8
+	N=\$(echo \"scale=0;sqrt(\${SYS_MEMORY}*0.62*1024/8)\" |bc -l)
 	NB=\$((256 - 256 % \$MPI_NUM_THREADS))
 	N=\$((\$N - \$N % \$NB))
 fi
