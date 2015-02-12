@@ -169,6 +169,7 @@ cd hpcc-1.4.3
 if [ \"X\$MPI_NUM_THREADS\" = \"X\" ]
 then
 	MPI_NUM_THREADS=\$(nproc)
+	declare -i MPI_NUM_THREADS
 fi
 
 if [ ! \"X\$HOSTFILE\" = \"X\" ] && [ -f \$HOSTFILE ]
@@ -186,7 +187,8 @@ PQ=0
 P=\$(echo \"scale=0;sqrt(\$MPI_NUM_THREADS)\" |bc -l)
 Q=\$P
 PQ=\$((\$P*\$Q))
-SYS_MEMORY=\$(grep MemTotal /proc/meminfo | awk '{ print $2 }')
+SYS_MEMORY=\$(grep MemTotal /proc/meminfo | awk '{ print \$2 }')
+declare -i SYS_MEMORY
 
 while [ \$PQ -ne \$MPI_NUM_THREADS ]; do
     Q=\$((\$MPI_NUM_THREADS/\$P))
