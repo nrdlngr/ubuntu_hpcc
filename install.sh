@@ -245,7 +245,5 @@ cp HPL.dat hpccinf.txt
 
 PATH=\$PATH:$MPI_PATH/bin
 LD_PRELOAD=$MPI_LIBS mpirun -np \$MPI_NUM_THREADS \$HOSTFILE hpcc
-echo \$? > ~/test-exit-status
-
-cat hpccoutf.txt > \$LOG_FILE" > hpcc
+echo \$? > ~/test-exit-status" > hpcc
 chmod +x hpcc
