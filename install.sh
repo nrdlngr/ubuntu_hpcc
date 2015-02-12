@@ -186,7 +186,7 @@ PQ=0
 P=\$(echo \"scale=0;sqrt(\$MPI_NUM_THREADS)\" |bc -l)
 Q=\$P
 PQ=\$((\$P*\$Q))
-SYS_MEMORY=\$(grep MemTotal /proc/meminfo | awk \'{ print $2 }\')
+SYS_MEMORY=\$(grep MemTotal /proc/meminfo | awk '{ print $2 }')
 
 while [ \$PQ -ne \$MPI_NUM_THREADS ]; do
     Q=\$((\$MPI_NUM_THREADS/\$P))
